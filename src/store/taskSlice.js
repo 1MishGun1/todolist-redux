@@ -18,8 +18,15 @@ const taskSlice = createSlice({
         },
       ]);
     },
-    deleteTask(state, action) {},
-    toggleTask(state, action) {},
+    deleteTask(state, action) {
+      state.tasks = state.tasks.filter((task) => task.id !== action.payload.id);
+    },
+    toggleTask(state, action) {
+      const toggledTask = state.tasks.find(
+        (task) => task.id === action.payload.id
+      );
+      toggledTask.completed = !toggledTask.completed;
+    },
   },
 });
 
