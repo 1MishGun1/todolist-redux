@@ -1,4 +1,4 @@
-export const InputField = ({ text, setText, addNewTask }) => {
+export const InputField = ({ text, setText, handleSubmit }) => {
   return (
     <>
       <label htmlFor="addTask">New task</label>
@@ -8,7 +8,7 @@ export const InputField = ({ text, setText, addNewTask }) => {
         id="addTask"
         onChange={(e) => setText(e.target.value)}
       />
-      <button onClick={addNewTask}>Add New Task</button>
+      <button onClick={handleSubmit}>Add New Task</button>
     </>
   );
 };
