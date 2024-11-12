@@ -1,9 +1,9 @@
 import Styles from "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TodoList } from "./components/TodoList";
 import { InputField } from "./components/InputField";
 import { useDispatch } from "react-redux";
-import { addNewTask } from "./store/taskSlice";
+import { addNewTask, fetchTasks } from "./store/taskSlice";
 
 function App() {
   const [text, setText] = useState("");
@@ -13,6 +13,10 @@ function App() {
     dispatch(addNewTask({ text }));
     setText("");
   };
+
+  useEffect(() => {
+    dispatch(fetchTasks());
+  }, [dispatch]);
 
   return (
     <div className={Styles.App}>
