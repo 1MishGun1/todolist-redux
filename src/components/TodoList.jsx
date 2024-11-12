@@ -4,6 +4,8 @@ import { TodoItem } from "./TodoItem";
 export const TodoList = () => {
   const tasks = useSelector((state) => state.tasks.tasks);
 
+  // console.log(tasks);
+
   return (
     <ul>
       {tasks.map((task) => (
