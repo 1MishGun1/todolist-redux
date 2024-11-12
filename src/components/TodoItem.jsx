@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { deleteTask, toggleTask } from "../store/taskSlice";
+import { deleteTodo, toggleStatus } from "../store/taskSlice";
 
 export const TodoItem = ({ id, title, completed }) => {
   const dispatch = useDispatch();
@@ -9,10 +9,10 @@ export const TodoItem = ({ id, title, completed }) => {
       <input
         type="checkbox"
         checked={completed}
-        onChange={() => toggleTask({ id })}
+        onChange={() => toggleStatus({ id })}
       />
       <h3>{title}</h3>
-      <span onClick={() => dispatch(deleteTask({ id }))}>&times;</span>
+      <span onClick={() => dispatch(deleteTodo(id))}>&times;</span>
     </li>
   );
 };
