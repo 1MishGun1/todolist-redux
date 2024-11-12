@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { deleteTask, toggleTask } from "../store/taskSlice";
 
-export const TodoItem = ({ id, text, completed }) => {
+export const TodoItem = ({ id, title, completed }) => {
   const dispatch = useDispatch();
 
   return (
@@ -11,7 +11,7 @@ export const TodoItem = ({ id, text, completed }) => {
         checked={completed}
         onChange={() => toggleTask({ id })}
       />
-      <h3>{text}</h3>
+      <h3>{title}</h3>
       <span onClick={() => dispatch(deleteTask({ id }))}>&times;</span>
     </li>
   );
